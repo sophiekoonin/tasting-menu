@@ -11,23 +11,54 @@ import nuts from '/nuts.js';
 
 const mainOptions = [meats, veg];
 
+function getSupplementaryOption(category) {
+  return (
+    getRandomThingOrNot(preVeg, false) +
+    getRandom(category) +
+    getRandomThingOrNot(postVeg, true)
+  );
+}
+
+function getRandomSupplementaryOption() {
+  const options = [
+    getSupplementaryOption(veg),
+    getSupplementaryOption(nuts),
+    getSupplementaryOption(fruit),
+  ];
+  return getRandom(options);
+}
+
+function getRandomThingOrNot(array, spaceBefore) {
+  const thing = spaceBefore ? ` ${getRandom(array)}` : `${getRandom(array)} `;
+  return getRandom([thing, '']);
+}
+
+function getFinishingTouch() {
+  const randomSauceOrNot = getRandom([` ${getRandom(sauces)}`, '']);
+  return getRandom([
+    `${getRandom(flavours)}${randomSauceOrNot}`,
+    `${getRandom(fruit)}${randomSauceOrNot}`,
+    `${getRandom(veg)}${randomSauceOrNot}`,
+  ]);
+}
+
 export function generateMain() {
-  // choose a method
-  // adj + main + veg [2-3] + flavour [+ sauce]
-  // main + noun + veg [2-3] + flavour [+ sauce]
-  // adj + veg + veg + flavour
-  // flavour or nuts
-  // veg or fruit
-  // 1
-  return `${getRandom(preMain)} ${getRandom(
-    getRandom(mainOptions)
-  )}, ${getRandom(veg)}, ${getRandom(veg)} ${getRandom(postVeg)}, ${getRandom(
-    flavours
-  )} ${getRandom(sauces)}`;
+  const firstOption =
+    getRandomThingOrNot(preMain, false) +
+    getRandom(getRandom(mainOptions)) +
+    getRandomThingOrNot(postMain, true);
+
+  return `${firstOption}, ${getSupplementaryOption(
+    veg
+  )}, ${getRandomSupplementaryOption()}, ${getFinishingTouch()}`;
 }
 
 function getRandom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-console.log(generateMain());
+console.log(toSentenceCase(generateMain()));
+
+function toSentenceCase(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

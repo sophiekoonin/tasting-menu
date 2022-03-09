@@ -37,7 +37,7 @@ export default [
   'onion',
   'oyster mushroom',
   'parsnip',
-  'pea shoots',
+  'pea shoot',
   'pea',
   'potato',
   'pumpkin',
