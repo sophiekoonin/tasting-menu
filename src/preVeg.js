@@ -14,6 +14,10 @@ export default [
   'candied',
   'shaved',
   'charred',
+  'the concept of',
+  'a whisper of',
+  'scent of',
+  'a faint memory of',
   'grilled',
   'burnt',
 ];
