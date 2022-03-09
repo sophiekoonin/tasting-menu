@@ -4,4 +4,14 @@ body {
   background: #fffaee;
   color: #0f0f0f;
   font-style: italic;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+body h1 {
+  margin-bottom: 4rem;
+}
+
+body p {
+  margin-bottom: 3rem;
 }
