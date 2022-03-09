@@ -46,6 +46,7 @@ export default [
   'salsify',
   'samphire',
   'shiitake mushroom',
+  'sorrel',
   'spinach',
   'squash blossom',
   'squash',
