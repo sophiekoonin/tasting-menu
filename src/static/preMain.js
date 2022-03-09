@@ -1,0 +1,15 @@
+export default [
+  '21-day aged',
+  'salt-roasted',
+  'roasted',
+  'poached',
+  'braised',
+  'charcoal roasted',
+  'locally sourced',
+  'ballotine of',
+  'fillet of',
+  'cured',
+  'smoked',
+  'salt-baked',
+  'quenelle of',
+];
