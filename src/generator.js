@@ -17,11 +17,10 @@ function getStarter() {
   const starterOptions = [...veg, 'oyster', 'langoustine'];
 }
 function getSupplementaryOption(category) {
-  return (
-    getRandomThingOrNot(preVeg, false) +
-    getRandom(category) +
-    getRandomThingOrNot(postVeg, true)
-  );
+  return getRandom([
+    getRandomThingOrNot(preVeg, false) + getRandom(category),
+    getRandom(category) + getRandomThingOrNot(postVeg, true),
+  ]);
 }
 
 function getRandomSupplementaryOption() {
