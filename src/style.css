@@ -5,6 +5,9 @@ body {
   color: #0f0f0f;
   font-style: italic;
   text-align: center;
+}
+
+#output {
   padding: 1.5rem;
 }
 
