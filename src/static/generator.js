@@ -8,6 +8,8 @@ import fruit from '/fruit.js';
 import veg from '/veg.js';
 import sauces from '/sauces.js';
 import nuts from '/nuts.js';
+import dessert from '/dessert.js';
+import dessertFlavours from '/dessertFlavours.js';
 
 const mainOptions = [meats, veg];
 
@@ -53,11 +55,32 @@ export function generateMain() {
   )}, ${getRandomSupplementaryOption()}, ${getFinishingTouch()}`;
 }
 
+function getRandomDessertFlavour() {
+  return getRandom([
+    getRandom(dessertFlavours),
+    getRandom(nuts),
+    getRandom(flavours),
+    getRandom(fruit),
+  ]);
+}
+
+function generateDessert() {
+  return (
+    getRandomDessertFlavour() +
+    getRandomThingOrNot(dessert, true) +
+    ', ' +
+    getRandomSupplementaryOption() +
+    ', ' +
+    getRandomDessertFlavour()
+  );
+}
+
 function getRandom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
 console.log(toSentenceCase(generateMain()));
+console.log(toSentenceCase(generateDessert()));
 
 function toSentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
