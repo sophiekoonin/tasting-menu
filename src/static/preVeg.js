@@ -1,7 +1,6 @@
 export default [
   'fermented',
   'pickled',
-  'salt-baked',
   'smoked',
   'charcoal-roasted',
   'roasted',
@@ -9,6 +8,7 @@ export default [
   'braised',
   'spiced',
   'sautéed',
+  'textures of',
   'wild',
   'seasonal',
   'candied',

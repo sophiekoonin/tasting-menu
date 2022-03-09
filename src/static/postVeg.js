@@ -5,8 +5,11 @@ export default [
   'fritter',
   'preserve',
   'pickle',
+  'three ways',
   'mash',
+  'butter',
   'ash',
   'soil',
   'extract',
+  'tartlet',
 ];

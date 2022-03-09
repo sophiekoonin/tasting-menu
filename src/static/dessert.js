@@ -5,8 +5,13 @@ export default [
   'pancake',
   'waffle',
   'millefeuille',
+  'gel',
   'granita',
   'panna cotta',
   'honeycomb',
   'curd',
+  'fondant',
+  'cake',
+  'mousse',
+  'gelato',
 ];

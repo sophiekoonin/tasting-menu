@@ -1,1 +1,1 @@
-export default ['cooked in wood shavings', 'tartare'];
+export default ['cooked in wood shavings', 'three ways', 'tartare'];

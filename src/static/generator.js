@@ -13,6 +13,9 @@ import dessertFlavours from '/dessertFlavours.js';
 
 const mainOptions = [meats, veg];
 
+function getStarter() {
+  const starterOptions = [...veg, 'oyster', 'langoustine'];
+}
 function getSupplementaryOption(category) {
   return (
     getRandomThingOrNot(preVeg, false) +
@@ -45,33 +48,25 @@ function getFinishingTouch() {
 }
 
 export function generateMain() {
-  const firstOption =
-    getRandomThingOrNot(preMain, false) +
-    getRandom(getRandom(mainOptions)) +
-    getRandomThingOrNot(postMain, true);
+  const firstOption = getRandom([
+    getRandomThingOrNot(preMain, false) + getRandom(getRandom(mainOptions)),
+    getRandom(getRandom(mainOptions)) + getRandomThingOrNot(postMain, true),
+  ]);
 
   return `${firstOption}, ${getSupplementaryOption(
     veg
   )}, ${getRandomSupplementaryOption()}, ${getFinishingTouch()}`;
 }
 
-function getRandomDessertFlavour() {
-  return getRandom([
-    getRandom(dessertFlavours),
-    getRandom(nuts),
-    getRandom(flavours),
-    getRandom(fruit),
-  ]);
-}
-
 function generateDessert() {
   return (
-    getRandomDessertFlavour() +
+    getRandom([getRandom(dessertFlavours), getRandom(fruit)]) +
     getRandomThingOrNot(dessert, true) +
     ', ' +
     getRandomSupplementaryOption() +
     ', ' +
-    getRandomDessertFlavour()
+    getRandom([getRandom(dessertFlavours), getRandom(nuts), getRandom(fruit)]) +
+    getRandomThingOrNot(sauces, true)
   );
 }
 
@@ -79,9 +74,16 @@ function getRandom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-console.log(toSentenceCase(generateMain()));
-console.log(toSentenceCase(generateDessert()));
+function displayOutput() {
+  const output = document.getElementById('output');
+
+  output.innerHTML = `<p>${generateMain()}</p><p>${generateMain()}</p><p>${generateMain()}</p><p>${generateDessert()}</p><p>${generateDessert()}</p>`;
+}
 
 function toSentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+document.getElementById('regen').onclick = displayOutput;
+
+displayOutput();
